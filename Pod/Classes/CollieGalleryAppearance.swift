@@ -35,6 +35,9 @@ open class CollieGalleryAppearance: NSObject {
     /// The color of current progress in the progress bar
     open var progressBarColor = UIColor.white
     
+    /// The color of the progress control currente page indicator
+    open var pageControlCurrentIndicatorColor = UIColor.white
+    
     /// The color of the activity indicator
     open var activityIndicatorColor = UIColor.white
     

@@ -209,10 +209,9 @@ open class CollieGallery: UIViewController, UIScrollViewDelegate, CollieGalleryV
             setupProgressIndicator()
         }
         
-        if options.showProgressControl {
+        if options.showPageControl {
             pageControl = UIPageControl(frame: CGRect(x: view.frame.size.width / 2, y: view.frame.size.height - 11, width: 0, height: 0))
-            pageControl?.pageIndicatorTintColor = UIColor.white
-            pageControl?.currentPageIndicatorTintColor = theme.closeButtonColor
+            pageControl?.currentPageIndicatorTintColor = theme.pageControlCurrentIndicatorColor
             pageControl?.numberOfPages = pictures.count
             pageControl?.currentPage = currentPageIndex
             view.addSubview(pageControl!)

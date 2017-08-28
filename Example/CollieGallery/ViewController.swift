@@ -57,7 +57,7 @@ class ViewController: UIViewController, CollieGalleryZoomTransitionDelegate, Col
             
         }
         
-        let options = CollieGalleryOptions()
+        let options = CollieGalleryOptions.sharedOptions
         
         let customAction = CollieGalleryCustomAction(title: "Custom Action", imageName: "settings") { () -> () in
             
@@ -82,7 +82,7 @@ class ViewController: UIViewController, CollieGalleryZoomTransitionDelegate, Col
             pictures.append(picture)
         }
         
-        let options = CollieGalleryOptions()
+        let options = CollieGalleryOptions.sharedOptions
         options.customOptionsBlock = { [weak self] in
             let alert = UIAlertController(title: "Hey",
                                           message: "Custom handle block",

@@ -38,11 +38,11 @@ open class CollieGalleryOptions: NSObject {
     /// The maximum scale that images can reach when zoomed
     open var maximumZoomScale: CGFloat = 5.0
     
-    /// Indicates wether the progress should be displayed or not
+    /// Indicates whether the progress should be displayed or not
     open var showProgress: Bool = true
     
-    /// Indicates wether the progress control should be displayed or not
-    open var showProgressControl: Bool = false
+    /// Indicates whether the page control should be displayed or not
+    open var showPageControl: Bool = false
     
     /// Indicates whether iOS' status bar will be shown
     open var hideStatusBar: Bool = true

@@ -59,6 +59,17 @@ public enum CollieGalleryTheme {
         }
     }
     
+    internal var pageControlCurrentIndicatorColor: UIColor {
+        switch self {
+        case .custom(let appearance):
+            return appearance.progressBarColor
+        case .dark:
+            return UIColor.white
+        case .light:
+            return UIColor.black
+        }
+    }
+    
     internal var closeButtonColor: UIColor {
         switch self {
         case .custom(let appearance):

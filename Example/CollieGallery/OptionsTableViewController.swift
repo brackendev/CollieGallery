@@ -12,6 +12,7 @@ import CollieGallery
 class OptionsTableViewController: UITableViewController {
 
     @IBOutlet weak var progressSwitch: UISwitch!
+    @IBOutlet weak var pageControlSwitch: UISwitch!
     @IBOutlet weak var zoomSwitch: UISwitch!
     @IBOutlet weak var saveSwitch: UISwitch!
     @IBOutlet weak var interactiveDismissSwitch: UISwitch!
@@ -35,6 +36,10 @@ class OptionsTableViewController: UITableViewController {
     
     @IBAction func progressSwitchChanged(_ sender: UISwitch) {
         CollieGalleryOptions.sharedOptions.showProgress = sender.isOn
+    }
+    
+    @IBAction func pageControlSwitchChanged(_ sender: UISwitch) {
+        CollieGalleryOptions.sharedOptions.showPageControl = sender.isOn
     }
     
     @IBAction func zoomSwitchChanged(_ sender: UISwitch) {
@@ -86,6 +91,7 @@ class OptionsTableViewController: UITableViewController {
         self.updateGapBetweenPagesLabel()
         
         self.updateProgressSwitch()
+        self.updatePageControlSwitch()
         self.updateZoomSwitch()
         self.updateSaveSwitch()
         self.updateInteractiveDismissSwitch()
@@ -113,6 +119,10 @@ class OptionsTableViewController: UITableViewController {
     
     func updateProgressSwitch() {
         self.progressSwitch.isOn = CollieGalleryOptions.sharedOptions.showProgress
+    }
+    
+    func updatePageControlSwitch() {
+        self.pageControlSwitch.isOn = CollieGalleryOptions.sharedOptions.showPageControl
     }
     
     func updateZoomSwitch() {
