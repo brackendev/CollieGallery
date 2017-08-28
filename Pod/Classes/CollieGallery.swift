@@ -148,6 +148,10 @@ open class CollieGallery: UIViewController, UIScrollViewDelegate, CollieGalleryV
         
         pagingScrollView.delegate = self
         scrollToIndex(options.openAtIndex, animated: false)
+        
+        if let pageC = pageControl {
+            pageControl?.currentPage = currentPageIndex
+        }
     }
     
     open override func viewDidAppear(_ animated: Bool) {
