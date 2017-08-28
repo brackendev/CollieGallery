@@ -83,6 +83,9 @@ open class CollieGallery: UIViewController, UIScrollViewDelegate, CollieGalleryV
     /// The background view of the progress bar
     open var progressBarView: UIView?
     
+    /// The control to show current page
+    open var pageControl: UIPageControl?
+    
     /// The view used to display the title and caption properties
     open var captionView: CollieGalleryCaptionView!
     
@@ -204,6 +207,15 @@ open class CollieGallery: UIViewController, UIScrollViewDelegate, CollieGalleryV
 
         if options.showProgress {
             setupProgressIndicator()
+        }
+        
+        if options.showProgressControl {
+            pageControl = UIPageControl(frame: CGRect(x: view.frame.size.width / 2, y: view.frame.size.height - 11, width: 0, height: 0))
+            pageControl?.pageIndicatorTintColor = UIColor.white
+            pageControl?.currentPageIndicatorTintColor = theme.closeButtonColor
+            pageControl?.numberOfPages = pictures.count
+            pageControl?.currentPage = currentPageIndex
+            view.addSubview(pageControl!)
         }
         
         loadImagesNextToIndex(currentPageIndex)
@@ -575,7 +587,7 @@ open class CollieGallery: UIViewController, UIScrollViewDelegate, CollieGalleryV
 
         if let progressBarView = progressBarView, let progressTrackView = progressTrackView {
             let maxProgress = progressTrackView.frame.size.width * CGFloat(pictures.count - 1)
-            let currentGap = CGFloat(currentPageIndex) * options.gapBetweenPages
+            let currentGap = CGFloat(currentPageIndex + 1) * options.gapBetweenPages
             let offset = scrollView.contentOffset.x - currentGap
             let progress = (maxProgress - (maxProgress - offset)) / CGFloat(pictures.count - 1)
             progressBarView.frame.size.width = max(progress, 0)
@@ -593,6 +605,10 @@ open class CollieGallery: UIViewController, UIScrollViewDelegate, CollieGalleryV
         loadImagesNextToIndex(currentPageIndex)
         
         updateCaptionText()
+        
+        if let pageC = pageControl {
+            pageC.currentPage = currentPageIndex
+        }
     }
 
     

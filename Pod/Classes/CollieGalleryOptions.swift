@@ -32,19 +32,22 @@ open class CollieGalleryOptions: NSObject {
     /// The amount of the parallax effect from 0 to 1
     open var parallaxFactor: CGFloat = 0.2
     
-    /// Indicates weather the pictures can be zoomed or not
+    /// Indicates whether the pictures can be zoomed or not
     open var enableZoom: Bool = true
     
     /// The maximum scale that images can reach when zoomed
     open var maximumZoomScale: CGFloat = 5.0
     
-    /// Indicates weather the progress should be displayed or not
+    /// Indicates wether the progress should be displayed or not
     open var showProgress: Bool = true
+    
+    /// Indicates wether the progress control should be displayed or not
+    open var showProgressControl: Bool = false
     
     /// Indicates whether iOS' status bar will be shown
     open var hideStatusBar: Bool = true
     
-    /// Indicates weather the caption view should be displayed or not
+    /// Indicates whether the caption view should be displayed or not
     open var showCaptionView: Bool = false
     
     /// The amount of pictures that should be preloaded next to the current displayed picture
