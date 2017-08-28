@@ -523,6 +523,10 @@ open class CollieGallery: UIViewController, UIScrollViewDelegate, CollieGalleryV
         captionView.captionLabel.text = picture.caption
         
         captionView.adjustView()
+        
+        if let pageC = pageControl {
+            pageC.currentPage = currentPageIndex
+        }
     }
     
     
@@ -604,10 +608,6 @@ open class CollieGallery: UIViewController, UIScrollViewDelegate, CollieGalleryV
         loadImagesNextToIndex(currentPageIndex)
         
         updateCaptionText()
-        
-        if let pageC = pageControl {
-            pageC.currentPage = currentPageIndex
-        }
     }
 
     
