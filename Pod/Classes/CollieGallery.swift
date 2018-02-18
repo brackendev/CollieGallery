@@ -150,7 +150,7 @@ open class CollieGallery: UIViewController, UIScrollViewDelegate, CollieGalleryV
         scrollToIndex(options.openAtIndex, animated: false)
         
         if let pageC = pageControl {
-            pageControl?.currentPage = currentPageIndex
+            pageC.currentPage = currentPageIndex
         }
     }
     
