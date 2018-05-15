@@ -226,13 +226,15 @@ internal class CollieGalleryView: UIView, UIScrollViewDelegate {
                                                         queue: mainQueue,
                                                         completionHandler:
                     { [weak self] response, data, error in
-                    if error == nil {
-                        let image = UIImage(data: data!)!
-                        
+                    if error == nil, let dat = data, let image = UIImage(data: dat) {
                         DispatchQueue.main.async(execute: {
                             self?.imageView.image = image
                             self?.updateImageViewSize()
-                            
+
+                            self?.activityIndicator.stopAnimating()
+                        })
+                    } else if error == nil {
+                        DispatchQueue.main.async(execute: {
                             self?.activityIndicator.stopAnimating()
                         })
                     }
