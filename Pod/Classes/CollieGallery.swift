@@ -218,6 +218,11 @@ open class CollieGallery: UIViewController, UIScrollViewDelegate, CollieGalleryV
             pageControl?.currentPageIndicatorTintColor = theme.pageControlCurrentIndicatorColor
             pageControl?.numberOfPages = pictures.count
             pageControl?.currentPage = currentPageIndex
+
+            if #available(iOS 11.0, *) {
+                pageControl?.accessibilityIgnoresInvertColors = true
+            }
+
             view.addSubview(pageControl!)
         }
         

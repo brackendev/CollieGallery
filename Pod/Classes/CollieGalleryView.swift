@@ -100,6 +100,10 @@ internal class CollieGalleryView: UIView, UIScrollViewDelegate {
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = UIColor.clear
 
+        if #available(iOS 11.0, *) {
+            imageView.accessibilityIgnoresInvertColors = true
+        }
+
         scrollView.addSubview(imageView)
     }
 
