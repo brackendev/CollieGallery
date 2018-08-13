@@ -25,7 +25,7 @@ open class CollieGalleryCustomAction: UIActivity {
             - performAction: The action that should be performed when tapped
 
     */
-    public init(title: String, imageName: String, performAction: @escaping (() -> ()) ) {
+    public init(title: String, imageName: String, performAction: @escaping ((Void) -> Void) ) {
         self.activityName = title
         self.activityImageName = imageName
         self.customActivityType = "Action \(title)"
@@ -58,6 +58,6 @@ open class CollieGalleryCustomAction: UIActivity {
     }
     
     override open func perform() {
-        customActionWhenTapped()
+        customActionWhenTapped(())
     }
 }
