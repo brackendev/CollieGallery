@@ -510,19 +510,29 @@ open class CollieGallery: UIViewController, UIScrollViewDelegate, CollieGalleryV
     fileprivate func getProgressInnerViewFrame(_ progressFrame: CGRect) -> CGRect {
         return CGRect(x: 0, y: 0, width: 0, height: progressFrame.size.height)
     }
+
+    fileprivate func originY() -> CGFloat {
+        if #available(iOS 11.0, *) {
+            if let top = UIApplication.shared.keyWindow?.safeAreaInsets.top {
+                return top - 20
+            }
+        }
+
+        return 0
+    }
     
     fileprivate func getCloseButtonFrame(_ avaiableSize: CGSize) -> CGRect {
-        return CGRect(x: 0, y: 0, width: 50, height: 50)
+        return CGRect(x: 0, y: originY(), width: 50, height: 50)
     }
     
     fileprivate func getActionButtonFrame(_ avaiableSize: CGSize) -> CGRect {
-        return CGRect(x: avaiableSize.width - 50, y: 0, width: 50, height: 50)
+        return CGRect(x: avaiableSize.width - 50, y: originY(), width: 50, height: 50)
     }
     
     fileprivate func getCustomButtonFrame(_ avaiableSize: CGSize, forIndex index: Int) -> CGRect {
         let position = index + 2
         
-        return CGRect(x: avaiableSize.width - CGFloat(50 * position), y: 0, width: 50, height: 50)
+        return CGRect(x: avaiableSize.width - CGFloat(50 * position), y: originY(), width: 50, height: 50)
     }
     
     fileprivate func updateCaptionText () {
@@ -589,8 +599,8 @@ open class CollieGallery: UIViewController, UIScrollViewDelegate, CollieGalleryV
             activityController.view.layoutIfNeeded()
         }
     }
-    
-    
+
+
     // MARK: - UIScrollView delegate
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         for i in 0 ..< pictureViews.count {
