@@ -81,5 +81,5 @@ open class CollieGalleryOptions: NSObject {
     open var customActions: [CollieGalleryCustomAction] = []
     
     /// Default actions to exclude from the gallery actions (UIActivityType Constants)
-    open var excludedActions: [UIActivityType] = []
+    open var excludedActions: [UIActivity.ActivityType] = []
 }
