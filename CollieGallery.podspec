@@ -15,6 +15,7 @@ DESC
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
+  s.swift_version = '4.2'
 
   s.source_files = 'Pod/Classes/**/*'
   #s.resource_bundles = {
