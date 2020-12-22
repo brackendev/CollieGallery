@@ -214,16 +214,19 @@ open class CollieGallery: UIViewController, UIScrollViewDelegate, CollieGalleryV
         }
         
         if options.showPageControl {
-            pageControl = UIPageControl(frame: CGRect(x: view.frame.size.width / 2, y: view.frame.size.height - 11, width: 0, height: 0))
-            pageControl?.currentPageIndicatorTintColor = theme.pageControlCurrentIndicatorColor
-            pageControl?.numberOfPages = pictures.count
-            pageControl?.currentPage = currentPageIndex
+            pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - 90, width: UIScreen.main.bounds.width, height: 50))
 
-            if #available(iOS 11.0, *) {
-                pageControl?.accessibilityIgnoresInvertColors = true
+            if let uPageControl: UIPageControl = pageControl {
+                uPageControl.currentPageIndicatorTintColor = theme.pageControlCurrentIndicatorColor
+                uPageControl.numberOfPages = pictures.count
+                uPageControl.currentPage = currentPageIndex
+
+                if #available(iOS 11.0, *) {
+                    uPageControl.accessibilityIgnoresInvertColors = true
+                }
+
+                view.addSubview(uPageControl)
             }
-
-            view.addSubview(pageControl!)
         }
         
         loadImagesNextToIndex(currentPageIndex)
